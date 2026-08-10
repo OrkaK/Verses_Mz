@@ -1,0 +1,106 @@
+export const INITIAL_VERSES = [
+  {
+    id: 'v1',
+    reference: 'Philippians 4:6-7',
+    translation: 'NIV',
+    category: 'Peace & Anxiety',
+    text: 'Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus.',
+    mastery: 'Learning', // 'New', 'Learning', 'Reviewing', 'Mastered'
+    srsInterval: 1,
+    easeFactor: 2.5,
+    nextReviewDate: new Date().toISOString(),
+    timesReviewed: 1,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'v2',
+    reference: 'Proverbs 3:5-6',
+    translation: 'NIV',
+    category: 'Trust & Guidance',
+    text: 'Trust in the LORD with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.',
+    mastery: 'Mastered',
+    srsInterval: 7,
+    easeFactor: 2.6,
+    nextReviewDate: new Date().toISOString(),
+    timesReviewed: 5,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'v3',
+    reference: 'Isaiah 40:31',
+    translation: 'NIV',
+    category: 'Strength & Hope',
+    text: 'But those who hope in the LORD will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint.',
+    mastery: 'Reviewing',
+    srsInterval: 3,
+    easeFactor: 2.4,
+    nextReviewDate: new Date().toISOString(),
+    timesReviewed: 3,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'v4',
+    reference: 'Joshua 1:9',
+    translation: 'NIV',
+    category: 'Courage & Faith',
+    text: 'Have I not commanded you? Be strong and courageous. Do not be afraid; do not be discouraged, for the LORD your God will be with you wherever you go.',
+    mastery: 'Learning',
+    srsInterval: 1,
+    easeFactor: 2.5,
+    nextReviewDate: new Date().toISOString(),
+    timesReviewed: 2,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'v5',
+    reference: 'Psalm 23:1-3',
+    translation: 'ESV',
+    category: 'Psalms & Comfort',
+    text: 'The LORD is my shepherd; I shall not want. He makes me lie down in green pastures. He leads me beside still waters. He restores my soul.',
+    mastery: 'New',
+    srsInterval: 0,
+    easeFactor: 2.5,
+    nextReviewDate: new Date().toISOString(),
+    timesReviewed: 0,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'v6',
+    reference: 'Romans 8:28',
+    translation: 'NIV',
+    category: 'Hope & Purpose',
+    text: 'And we know that in all things God works for the good of those who love him, who have been called according to his purpose.',
+    mastery: 'New',
+    srsInterval: 0,
+    easeFactor: 2.5,
+    nextReviewDate: new Date().toISOString(),
+    timesReviewed: 0,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'v7',
+    reference: '1 Corinthians 13:4-7',
+    translation: 'NIV',
+    category: 'Love & Grace',
+    text: 'Love is patient, love is kind. It does not envy, it does not boast, it is not proud. It does not dishonor others, it is not self-seeking, it is not easily angered, it keeps no record of wrongs.',
+    mastery: 'Learning',
+    srsInterval: 2,
+    easeFactor: 2.4,
+    nextReviewDate: new Date().toISOString(),
+    timesReviewed: 2,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'v8',
+    reference: '2 Timothy 1:7',
+    translation: 'NKJV',
+    category: 'Courage & Faith',
+    text: 'For God has not given us a spirit of fear, but of power and of love and of a sound mind.',
+    mastery: 'Mastered',
+    srsInterval: 14,
+    easeFactor: 2.7,
+    nextReviewDate: new Date().toISOString(),
+    timesReviewed: 8,
+    createdAt: new Date().toISOString()
+  }
+];

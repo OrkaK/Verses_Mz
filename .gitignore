@@ -1,0 +1,16 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Production build
+dist
+dist-ssr
+*.local
+
+# System & OS junk
+.DS_Store
+Thumbs.db
+*.log
+.tempmediaStorage
+.system_generated
+browser
