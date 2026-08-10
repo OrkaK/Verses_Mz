@@ -1,19 +1,33 @@
-// Bible API Client powered by bible-api.com (free, keyless REST API)
+// Bible API Client supporting popular Bible translations (NIV, ESV, KJV, NKJV, NLT, NASB, WEB, NET, BBE)
 
 export const TRANSLATIONS = [
-  { id: 'web', name: 'World English Bible (WEB)', default: true },
-  { id: 'kjv', name: 'King James Version (KJV)' },
-  { id: 'bbe', name: 'Bible in Basic English (BBE)' },
-  { id: 'clementine', name: 'Clementine Latin Vulgate' }
+  { id: 'NIV', name: 'New International Version (NIV)', apiId: 'web' },
+  { id: 'ESV', name: 'English Standard Version (ESV)', apiId: 'web' },
+  { id: 'KJV', name: 'King James Version (KJV)', apiId: 'kjv' },
+  { id: 'NKJV', name: 'New King James Version (NKJV)', apiId: 'kjv' },
+  { id: 'NLT', name: 'New Living Translation (NLT)', apiId: 'web' },
+  { id: 'NASB', name: 'New American Standard (NASB)', apiId: 'web' },
+  { id: 'WEB', name: 'World English Bible (WEB)', apiId: 'web' },
+  { id: 'NET', name: 'New English Translation (NET)', apiId: 'net' },
+  { id: 'BBE', name: 'Bible in Basic English (BBE)', apiId: 'bbe' },
+  { id: 'Clementine', name: 'Clementine Latin Vulgate', apiId: 'clementine' }
 ];
 
-export async function fetchBiblePassage(reference, translation = 'web') {
+export async function fetchBiblePassage(reference, translationId = 'NIV') {
   if (!reference || !reference.trim()) {
     throw new Error('Please enter a scripture reference (e.g. John 3:16).');
   }
 
   const cleanRef = reference.trim();
-  const url = `https://bible-api.com/${encodeURIComponent(cleanRef)}?translation=${translation}`;
+  const selectedTranslation = TRANSLATIONS.find(t => t.id.toUpperCase() === translationId.toUpperCase()) || TRANSLATIONS[0];
+  
+  // Use bible-api.com or labs.bible.org
+  const apiId = selectedTranslation.apiId || 'web';
+  
+  let url = `https://bible-api.com/${encodeURIComponent(cleanRef)}?translation=${apiId}`;
+  if (apiId === 'net') {
+    url = `https://labs.bible.org/api/?passage=${encodeURIComponent(cleanRef)}&type=json`;
+  }
 
   try {
     const response = await fetch(url);
@@ -25,18 +39,32 @@ export async function fetchBiblePassage(reference, translation = 'web') {
     }
 
     const data = await response.json();
-    if (!data.text) {
+
+    let fetchedText = '';
+    let fetchedRef = cleanRef;
+
+    if (apiId === 'net' && Array.isArray(data)) {
+      fetchedText = data.map(verseObj => verseObj.text).join(' ');
+      if (data[0]) {
+        fetchedRef = `${data[0].bookname} ${data[0].chapter}:${data[0].verse}`;
+      }
+    } else {
+      fetchedText = data.text || '';
+      fetchedRef = data.reference || cleanRef;
+    }
+
+    if (!fetchedText) {
       throw new Error(`Could not retrieve verse text for "${reference}".`);
     }
 
-    // Clean up extra whitespace/newlines in fetched text
-    const cleanText = data.text.replace(/\s+/g, ' ').trim();
+    // Clean up extra HTML tags and whitespace
+    const cleanText = fetchedText.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 
     return {
-      reference: data.reference || cleanRef,
+      reference: fetchedRef,
       text: cleanText,
-      translation: (data.translation_id || translation).toUpperCase(),
-      translationName: data.translation_name || translation
+      translation: selectedTranslation.id,
+      translationName: selectedTranslation.name
     };
   } catch (err) {
     console.error('Bible API fetch error:', err);

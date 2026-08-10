@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { X, Settings, Moon, Sun, Volume2, VolumeX, Download, Upload, RefreshCw, Check, AlertCircle, Cloud, User, ShieldCheck } from 'lucide-react';
+import { X, Settings, Moon, Sun, Volume2, VolumeX, Download, Upload, RefreshCw, Check, AlertCircle, Cloud, User, ShieldCheck, BookOpen } from 'lucide-react';
 import { exportUserDataJSON, importUserDataJSON } from '../utils/storage';
+import { TRANSLATIONS } from '../utils/bibleApi';
 import { playClickSound, playSuccessSound } from '../utils/audioEffects';
 
 export default function SettingsModal({
@@ -12,6 +13,8 @@ export default function SettingsModal({
   onToggleTheme,
   soundEnabled,
   onToggleSound,
+  preferredTranslation,
+  onChangeTranslation,
   onRefreshData
 }) {
   const [importError, setImportError] = useState('');
@@ -114,6 +117,29 @@ export default function SettingsModal({
         {/* Section 1: Appearance & Sound */}
         <div className="flex flex-col gap-4 pt-2 border-t border-subtle">
           <h4 className="serif-heading text-sm font-bold uppercase tracking-wider text-muted">Preferences</h4>
+
+          <div className="flex items-center justify-between p-3 rounded-lg border border-subtle bg-secondary/30">
+            <div className="flex items-center gap-3">
+              <BookOpen size={20} style={{ color: '#A33A2E' }} />
+              <div>
+                <div className="text-sm font-bold">Default Bible Translation</div>
+                <div className="text-xs text-muted">Select preferred translation for auto-fill & lookup</div>
+              </div>
+            </div>
+            <select
+              value={preferredTranslation || 'NIV'}
+              onChange={(e) => {
+                playClickSound(soundEnabled);
+                onChangeTranslation(e.target.value);
+              }}
+              className="input-field text-xs font-bold shrink-0"
+              style={{ width: 'auto' }}
+            >
+              {TRANSLATIONS.map((t) => (
+                <option key={t.id} value={t.id}>{t.name}</option>
+              ))}
+            </select>
+          </div>
 
           <div className="flex items-center justify-between p-3 rounded-lg border border-subtle bg-secondary/30">
             <div className="flex items-center gap-3">

@@ -3,11 +3,11 @@ import { X, BookPlus, Sparkles, Search, Loader2 } from 'lucide-react';
 import { fetchBiblePassage, TRANSLATIONS } from '../utils/bibleApi';
 import { playClickSound, playSuccessSound } from '../utils/audioEffects';
 
-export default function AddVerseModal({ isOpen, onClose, onAddVerse, soundEnabled = true }) {
+export default function AddVerseModal({ isOpen, onClose, onAddVerse, soundEnabled = true, preferredTranslation = 'NIV' }) {
   const [activeTab, setActiveTab] = useState('lookup'); // 'lookup' | 'manual'
   const [reference, setReference] = useState('');
-  const [apiTranslation, setApiTranslation] = useState('web');
-  const [manualTranslation, setManualTranslation] = useState('NIV');
+  const [apiTranslation, setApiTranslation] = useState(preferredTranslation);
+  const [manualTranslation, setManualTranslation] = useState(preferredTranslation);
   const [category, setCategory] = useState('Faith & Hope');
   const [customCategory, setCustomCategory] = useState('');
   const [text, setText] = useState('');
@@ -159,7 +159,7 @@ export default function AddVerseModal({ isOpen, onClose, onAddVerse, soundEnable
                     style={{ width: 'auto' }}
                   >
                     {TRANSLATIONS.map((t) => (
-                      <option key={t.id} value={t.id}>{t.id.toUpperCase()}</option>
+                      <option key={t.id} value={t.id}>{t.name}</option>
                     ))}
                   </select>
                 </div>

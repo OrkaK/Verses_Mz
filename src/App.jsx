@@ -25,7 +25,9 @@ import {
   getSoundPreference,
   setSoundPreference,
   getStoredUser,
-  saveStoredUser
+  saveStoredUser,
+  getPreferredTranslation,
+  setPreferredTranslation
 } from './utils/storage';
 import { playClickSound } from './utils/audioEffects';
 import { BookOpen, BrainCircuit, Sparkles, Plus, ArrowLeft, Settings, Sun, Moon, User, Cloud } from 'lucide-react';
@@ -46,6 +48,7 @@ export default function App() {
   const [sharingVerse, setSharingVerse] = useState(null);
   const [theme, setTheme] = useState('light');
   const [soundEnabled, setSoundEnabled] = useState(true);
+  const [preferredTranslation, setTranslationState] = useState('NIV');
 
   // Initialize data & theme
   useEffect(() => {
@@ -53,6 +56,7 @@ export default function App() {
     setVerses(loadedVerses);
     setStreakData(getStreakData());
     setUser(getStoredUser());
+    setTranslationState(getPreferredTranslation());
 
     if (loadedVerses.length > 0) {
       setSelectedVerse(loadedVerses[0]);
@@ -65,6 +69,11 @@ export default function App() {
     const savedSound = getSoundPreference();
     setSoundEnabled(savedSound);
   }, []);
+
+  const handleChangeTranslation = (newTr) => {
+    setTranslationState(newTr);
+    setPreferredTranslation(newTr);
+  };
 
   const handleSignIn = (newUser) => {
     setUser(newUser);
@@ -359,6 +368,7 @@ export default function App() {
         onClose={() => setIsAddModalOpen(false)}
         onAddVerse={handleAddVerse}
         soundEnabled={soundEnabled}
+        preferredTranslation={preferredTranslation}
       />
 
       {/* Edit Verse Modal */}
@@ -389,6 +399,8 @@ export default function App() {
         onToggleTheme={handleToggleTheme}
         soundEnabled={soundEnabled}
         onToggleSound={handleToggleSound}
+        preferredTranslation={preferredTranslation}
+        onChangeTranslation={handleChangeTranslation}
         onRefreshData={refreshData}
       />
 

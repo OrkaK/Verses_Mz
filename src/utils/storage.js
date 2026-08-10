@@ -8,8 +8,25 @@ const STORAGE_KEYS = {
   THEME: 'verse_theme_v1',
   SOUND: 'verse_sound_v1',
   BOOKMARKS: 'verse_bookmarks_v1',
-  USER: 'verse_user_v1'
+  USER: 'verse_user_v1',
+  TRANSLATION: 'verse_translation_v1'
 };
+
+export function getPreferredTranslation() {
+  try {
+    return localStorage.getItem(STORAGE_KEYS.TRANSLATION) || 'NIV';
+  } catch (e) {
+    return 'NIV';
+  }
+}
+
+export function setPreferredTranslation(translation) {
+  try {
+    localStorage.setItem(STORAGE_KEYS.TRANSLATION, translation);
+  } catch (e) {
+    console.error('Error saving translation preference:', e);
+  }
+}
 
 export function getStoredUser() {
   try {
