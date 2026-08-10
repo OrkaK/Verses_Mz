@@ -32,7 +32,7 @@ export default function Navigation({
       <div className="hidden md:flex flex-col gap-4 mb-6 px-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="Memorize Verses" style={{ width: '36px', height: '36px', minWidth: '36px', height: '36px', objectFit: 'contain' }} className="dark:invert shrink-0" />
+            <img src="/logo.png" alt="Memorize Verses" style={{ width: '36px', height: '36px', minWidth: '36px', objectFit: 'contain' }} className="dark:invert shrink-0" />
             <div>
               <h2 className="serif-heading text-lg font-bold tracking-tight text-primary leading-tight">Memorize Verses</h2>
               <p className="text-[11px] text-muted">Scripture Memorization</p>
