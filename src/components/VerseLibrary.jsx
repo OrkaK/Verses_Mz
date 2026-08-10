@@ -209,7 +209,7 @@ export default function VerseLibrary({
                   }}
                   className="btn btn-ghost btn-sm gap-1.5 text-xs"
                 >
-                  <Volume2 size={15} style={{ color: '#8A737D' }} />
+                  <Volume2 size={15} style={{ color: '#A33A2E' }} />
                   <span>{activeAudioVerseId === v.id ? 'Close Audio' : 'Listen'}</span>
                 </button>
 

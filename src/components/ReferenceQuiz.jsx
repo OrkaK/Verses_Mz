@@ -165,7 +165,7 @@ export default function ReferenceQuiz({ verses, onComplete }) {
                   className={`p-4 rounded-lg border-2 text-left transition-all flex items-center justify-between gap-3 ${btnStyle}`}
                   style={{
                     backgroundColor: isSubmitted && opt.isCorrect ? '#E8F5E9' : isSelected ? '#F6F0F2' : '#FFFFFF',
-                    borderColor: isSubmitted && opt.isCorrect ? '#2E7D32' : isSelected ? '#8A737D' : '#EAE3D9'
+                    borderColor: isSubmitted && opt.isCorrect ? '#2E7D32' : isSelected ? '#A33A2E' : '#EAE3D9'
                   }}
                 >
                   <span className={`text-sm ${currentQ.type === 'text' ? 'scripture-text' : 'font-semibold'}`}>

@@ -93,7 +93,7 @@ export default function AchievementsView({ verses, streakCount }) {
         <div className="card p-4 flex flex-col justify-between">
           <div className="text-xs font-medium text-muted mb-1">Current Streak</div>
           <div className="text-2xl font-bold text-primary flex items-center gap-1.5">
-            <Flame size={22} style={{ color: '#8A737D' }} /> {streakCount} Days
+            <Flame size={22} style={{ color: '#A33A2E' }} /> {streakCount} Days
           </div>
         </div>
 
@@ -113,7 +113,7 @@ export default function AchievementsView({ verses, streakCount }) {
 
         <div className="card p-4 flex flex-col justify-between">
           <div className="text-xs font-medium text-muted mb-1">Words Internalized</div>
-          <div className="text-2xl font-bold" style={{ color: '#8A737D' }}>
+          <div className="text-2xl font-bold" style={{ color: '#A33A2E' }}>
             {totalWordsMastered.toLocaleString()}
           </div>
         </div>
@@ -122,7 +122,7 @@ export default function AchievementsView({ verses, streakCount }) {
       {/* Badges Grid */}
       <div className="flex flex-col gap-3">
         <h3 className="serif-heading text-lg flex items-center gap-2">
-          <Award size={20} style={{ color: '#8A737D' }} /> Unlocked Badges
+          <Award size={20} style={{ color: '#A33A2E' }} /> Unlocked Badges
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -141,7 +141,7 @@ export default function AchievementsView({ verses, streakCount }) {
                   className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${
                     item.unlocked ? 'bg-terracotta text-white shadow-xs' : 'bg-stone-200 text-stone-500'
                   }`}
-                  style={{ backgroundColor: item.unlocked ? '#8A737D' : undefined }}
+                  style={{ backgroundColor: item.unlocked ? '#A33A2E' : undefined }}
                 >
                   <IconComponent size={20} />
                 </div>

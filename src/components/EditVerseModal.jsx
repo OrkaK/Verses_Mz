@@ -52,7 +52,7 @@ export default function EditVerseModal({ verse, isOpen, onClose, onUpdateVerse, 
       >
         <div className="flex items-center justify-between pb-3 border-b border-subtle">
           <div className="flex items-center gap-2">
-            <Edit3 size={20} style={{ color: '#8A737D' }} />
+            <Edit3 size={20} style={{ color: '#A33A2E' }} />
             <h3 className="serif-heading text-xl">Edit Verse Details</h3>
           </div>
           <button onClick={onClose} className="btn btn-ghost btn-icon text-muted">

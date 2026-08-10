@@ -72,7 +72,7 @@ export default function SettingsModal({
         {/* Header */}
         <div className="flex items-center justify-between pb-3 border-b border-subtle">
           <div className="flex items-center gap-2">
-            <Settings size={20} style={{ color: '#8A737D' }} />
+            <Settings size={20} style={{ color: '#A33A2E' }} />
             <h3 className="serif-heading text-xl">App Settings & Preferences</h3>
           </div>
           <button onClick={onClose} className="btn btn-ghost btn-icon text-muted">
@@ -104,7 +104,7 @@ export default function SettingsModal({
                 onOpenAuth();
               }}
               className="btn btn-secondary btn-sm text-xs font-bold shrink-0"
-              style={user ? undefined : { borderColor: '#8A737D', color: '#8A737D' }}
+              style={user ? undefined : { borderColor: '#A33A2E', color: '#A33A2E' }}
             >
               {user ? 'Manage Sync' : 'Sign In to Sync'}
             </button>
@@ -117,7 +117,7 @@ export default function SettingsModal({
 
           <div className="flex items-center justify-between p-3 rounded-lg border border-subtle bg-secondary/30">
             <div className="flex items-center gap-3">
-              {theme === 'dark' ? <Moon size={20} className="text-amber-400" /> : <Sun size={20} style={{ color: '#8A737D' }} />}
+              {theme === 'dark' ? <Moon size={20} className="text-amber-400" /> : <Sun size={20} style={{ color: '#A33A2E' }} />}
               <div>
                 <div className="text-sm font-bold">Dark Theme</div>
                 <div className="text-xs text-muted">Switch between warm light mode and midnight dark mode</div>

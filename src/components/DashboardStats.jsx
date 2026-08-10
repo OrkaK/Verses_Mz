@@ -50,8 +50,8 @@ export default function DashboardStats({ verses, streakCount, onSelectVerseMode,
         <div className="card p-4 flex flex-col justify-between">
           <div className="text-xs font-medium text-muted mb-1">In Progress</div>
           <div className="flex items-baseline justify-between">
-            <span className="text-2xl font-bold" style={{ color: '#8A737D' }}>{learningCount}</span>
-            <BrainCircuit size={18} style={{ color: '#8A737D' }} />
+            <span className="text-2xl font-bold" style={{ color: '#A33A2E' }}>{learningCount}</span>
+            <BrainCircuit size={18} style={{ color: '#A33A2E' }} />
           </div>
         </div>
 
@@ -76,7 +76,7 @@ export default function DashboardStats({ verses, streakCount, onSelectVerseMode,
       <div className="card flex flex-col gap-4">
         <div className="flex items-center justify-between border-b border-subtle pb-3">
           <div className="flex items-center gap-2">
-            <Sparkles size={20} style={{ color: '#8A737D' }} />
+            <Sparkles size={20} style={{ color: '#A33A2E' }} />
             <h3 className="serif-heading text-lg">Recommended Today</h3>
           </div>
           <span className="text-xs text-muted font-medium">Spaced Repetition Schedule</span>
@@ -127,7 +127,7 @@ export default function DashboardStats({ verses, streakCount, onSelectVerseMode,
       {/* Quick Action Interactive Games Section */}
       <div className="flex flex-col gap-3">
         <h3 className="serif-heading text-lg flex items-center gap-2">
-          <Gamepad2 size={20} style={{ color: '#8A737D' }} /> Practice Games & Modes
+          <Gamepad2 size={20} style={{ color: '#A33A2E' }} /> Practice Games & Modes
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">

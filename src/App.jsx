@@ -171,7 +171,7 @@ export default function App() {
         {/* Mobile Header Bar */}
         <header className="flex md:hidden items-center justify-between pb-4 mb-4 border-b border-subtle">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-md flex items-center justify-center text-white" style={{ backgroundColor: '#8A737D' }}>
+            <div className="w-8 h-8 rounded-md flex items-center justify-center text-white" style={{ backgroundColor: '#A33A2E' }}>
               <Sparkles size={18} />
             </div>
             <h2 className="serif-heading text-lg font-bold" style={{ color: '#1E293B' }}>Verse</h2>
@@ -193,7 +193,7 @@ export default function App() {
             <button
               onClick={() => setIsAddModalOpen(true)}
               className="btn btn-primary btn-sm gap-1"
-              style={{ backgroundColor: '#8A737D' }}
+              style={{ backgroundColor: '#A33A2E' }}
             >
               <Plus size={16} /> Add
             </button>

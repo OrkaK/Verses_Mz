@@ -56,7 +56,7 @@ export default function AuthModal({ isOpen, onClose, user, onSignIn, onSignOut, 
         {/* Header */}
         <div className="flex items-center justify-between pb-3 border-b border-subtle">
           <div className="flex items-center gap-2">
-            <Cloud size={20} style={{ color: '#8A737D' }} />
+            <Cloud size={20} style={{ color: '#A33A2E' }} />
             <h3 className="serif-heading text-xl">
               {user ? 'Account & Sync' : isSignUp ? 'Create Cloud Account' : 'Sign In to Sync'}
             </h3>
@@ -70,7 +70,7 @@ export default function AuthModal({ isOpen, onClose, user, onSignIn, onSignOut, 
           /* Signed In Profile View */
           <div className="flex flex-col gap-5">
             <div className="p-4 rounded-xl border border-subtle bg-secondary/30 flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-terracotta text-white flex items-center justify-center font-bold text-lg shadow-sm" style={{ backgroundColor: '#8A737D' }}>
+              <div className="w-12 h-12 rounded-full bg-terracotta text-white flex items-center justify-center font-bold text-lg shadow-sm" style={{ backgroundColor: '#A33A2E' }}>
                 {user.avatar || 'U'}
               </div>
               <div className="flex flex-col">
@@ -177,7 +177,7 @@ export default function AuthModal({ isOpen, onClose, user, onSignIn, onSignOut, 
               <button
                 type="submit"
                 className="btn btn-primary w-full gap-2 text-xs font-bold py-2.5 mt-1"
-                style={{ backgroundColor: '#8A737D' }}
+                style={{ backgroundColor: '#A33A2E' }}
               >
                 <LogIn size={16} /> {isSignUp ? 'Create Cloud Account' : 'Sign In & Enable Sync'}
               </button>
@@ -191,7 +191,7 @@ export default function AuthModal({ isOpen, onClose, user, onSignIn, onSignOut, 
                   setError('');
                 }}
                 className="text-xs text-terracotta hover:underline font-semibold"
-                style={{ color: '#8A737D' }}
+                style={{ color: '#A33A2E' }}
               >
                 {isSignUp ? 'Already have an account? Sign In' : "Don't have an account? Create one"}
               </button>

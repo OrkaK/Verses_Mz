@@ -5,27 +5,27 @@ import { playClickSound, playSuccessSound } from '../utils/audioEffects';
 const CARD_THEMES = [
   {
     id: 'terracotta',
-    name: 'Mauve Elegance',
-    bg: 'linear-gradient(135deg, #8A737D 0%, #6E5962 100%)',
+    name: 'Sacred Crimson',
+    bg: 'linear-gradient(135deg, #A33A2E 0%, #802B21 100%)',
     textColor: '#FFFFFF',
-    refColor: '#FDE68A',
-    borderColor: 'rgba(255, 255, 255, 0.2)'
+    refColor: '#EDE4CD',
+    borderColor: 'rgba(237, 228, 205, 0.3)'
   },
   {
     id: 'dark',
-    name: 'Midnight Slate',
-    bg: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
-    textColor: '#F8FAFC',
-    refColor: '#F59E0B',
-    borderColor: '#334155'
+    name: 'Midnight Ink',
+    bg: 'linear-gradient(135deg, #1C1B29 0%, #12111C 100%)',
+    textColor: '#EDE4CD',
+    refColor: '#B8862E',
+    borderColor: '#3E3B52'
   },
   {
     id: 'sand',
-    name: 'Soft Neutral',
-    bg: '#FAF7F8',
-    textColor: '#2B2327',
-    refColor: '#8A737D',
-    borderColor: '#D2C4C4'
+    name: 'Parchment Scribe',
+    bg: '#F7F4EC',
+    textColor: '#1C1B29',
+    refColor: '#A33A2E',
+    borderColor: '#D9CCA9'
   },
   {
     id: 'olive',
@@ -71,8 +71,8 @@ export default function ShareVerseModal({ verse, isOpen, onClose, soundEnabled =
     // Draw background
     if (selectedTheme.id === 'terracotta') {
       const grad = ctx.createLinearGradient(0, 0, 600, 400);
-      grad.addColorStop(0, '#8A737D');
-      grad.addColorStop(1, '#6E5962');
+      grad.addColorStop(0, '#A33A2E');
+      grad.addColorStop(1, '#802B21');
       ctx.fillStyle = grad;
     } else if (selectedTheme.id === 'dark') {
       const grad = ctx.createLinearGradient(0, 0, 600, 400);
@@ -214,7 +214,7 @@ export default function ShareVerseModal({ verse, isOpen, onClose, soundEnabled =
           <button
             onClick={handleDownloadCard}
             className="btn btn-primary w-full sm:w-auto gap-2 text-xs"
-            style={{ backgroundColor: '#8A737D' }}
+            style={{ backgroundColor: '#A33A2E' }}
           >
             <Download size={16} /> Download PNG Card
           </button>

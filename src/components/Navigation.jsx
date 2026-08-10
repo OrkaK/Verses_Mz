@@ -32,7 +32,7 @@ export default function Navigation({
       <div className="hidden md:flex flex-col gap-4 mb-6 px-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-terracotta flex items-center justify-center text-white shadow-sm" style={{ backgroundColor: '#8A737D' }}>
+            <div className="w-10 h-10 rounded-lg bg-terracotta flex items-center justify-center text-white shadow-sm" style={{ backgroundColor: '#A33A2E' }}>
               <Sparkles size={22} className="text-white" />
             </div>
             <div>
@@ -93,7 +93,7 @@ export default function Navigation({
         {/* Streak Counter Badge */}
         <div className="flex items-center justify-between p-3 rounded-lg border bg-secondary/50 border-subtle">
           <div className="flex items-center gap-2">
-            <Flame size={20} style={{ color: '#8A737D' }} />
+            <Flame size={20} style={{ color: '#A33A2E' }} />
             <div>
               <div className="text-xs font-medium text-muted">Daily Streak</div>
               <div className="text-sm font-bold text-primary">{streakCount} {streakCount === 1 ? 'Day' : 'Days'}</div>
@@ -107,7 +107,7 @@ export default function Navigation({
             onOpenAddModal();
           }}
           className="btn btn-primary w-full mt-2"
-          style={{ width: '100%', backgroundColor: '#8A737D' }}
+          style={{ width: '100%', backgroundColor: '#A33A2E' }}
         >
           <Plus size={18} /> Add Custom Verse
         </button>

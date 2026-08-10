@@ -92,7 +92,7 @@ export default function WordScramble({ verse, onComplete }) {
             <span
               key={item.id}
               className="word-chip bg-white border-terracotta text-primary font-bold shadow-sm"
-              style={{ backgroundColor: '#FFFFFF', borderColor: '#8A737D' }}
+              style={{ backgroundColor: '#FFFFFF', borderColor: '#A33A2E' }}
             >
               {item.text}
             </span>

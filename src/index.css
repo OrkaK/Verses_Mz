@@ -1,41 +1,46 @@
 /* Design Tokens & CSS Reset */
 :root {
-  /* Color Palette - Elegant Mauve & Soft Neutral (#8A737D & #D2C4C4) */
-  --bg-primary: #FAF7F8;
-  --bg-secondary: #F2EAEA;
+  /* Color Palette - Sacred Illuminated Scribe (#1C1B29, #EDE4CD, #A33A2E, #B8862E, #3F6650) */
+  --bg-primary: #F7F4EC;
+  --bg-secondary: #EFEAD9;
   --bg-card: #FFFFFF;
-  --bg-hover: #EBE1E1;
-  --bg-active: #E0D4D4;
+  --bg-hover: #E6DFCD;
+  --bg-active: #DCD3BC;
   
-  --text-primary: #2B2327;
-  --text-secondary: #5B4F55;
-  --text-muted: #85747C;
-  --text-light: #A3949B;
+  --text-primary: #1C1B29;
+  --text-secondary: #423F52;
+  --text-muted: #6E6A7F;
+  --text-light: #9793A6;
 
-  --accent-terracotta: #8A737D;
-  --accent-terracotta-light: #F6F0F2;
-  --accent-sage: #556B2F;
-  --accent-sage-light: #F2F5ED;
-  --accent-amber: #D97706;
-  --accent-amber-light: #FEF3C7;
+  --accent-crimson: #A33A2E;
+  --accent-gold: #B8862E;
+  --accent-sage: #3F6650;
+  --accent-parchment: #EDE4CD;
+
+  --accent-terracotta: #A33A2E;
+  --accent-terracotta-light: #FBF0EF;
+  --accent-sage-light: #EFF5F1;
+  --accent-amber: #B8862E;
+  --accent-amber-light: #FBF4E6;
   
-  --border-subtle: #EAE0E0;
-  --border-medium: #D2C4C4;
-  --border-focus: #8A737D;
+  --border-subtle: #E6DFC9;
+  --border-medium: #D9CCA9;
+  --border-focus: #A33A2E;
 
-  --status-success: #2E7D32;
-  --status-success-bg: #E8F5E9;
-  --status-error: #C62828;
-  --status-error-bg: #FFEBEE;
+  --status-success: #3F6650;
+  --status-success-bg: #EFF5F1;
+  --status-error: #A33A2E;
+  --status-error-bg: #FBF0EF;
 
   /* Typography */
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Frank Ruhl Libre', serif;
+  --font-sans: 'Public Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
 
   /* Elevation */
-  --shadow-sm: 0 1px 3px rgba(30, 41, 59, 0.04), 0 1px 2px rgba(30, 41, 59, 0.02);
-  --shadow-md: 0 4px 16px -2px rgba(30, 41, 59, 0.06), 0 2px 6px rgba(30, 41, 59, 0.03);
-  --shadow-lg: 0 12px 32px -4px rgba(30, 41, 59, 0.08), 0 4px 12px rgba(30, 41, 59, 0.04);
+  --shadow-sm: 0 1px 3px rgba(28, 27, 41, 0.04), 0 1px 2px rgba(28, 27, 41, 0.02);
+  --shadow-md: 0 4px 16px -2px rgba(28, 27, 41, 0.06), 0 2px 6px rgba(28, 27, 41, 0.03);
+  --shadow-lg: 0 12px 32px -4px rgba(28, 27, 41, 0.08), 0 4px 12px rgba(28, 27, 41, 0.04);
 
   /* Radius */
   --radius-sm: 8px;
@@ -49,29 +54,29 @@
   --duration-normal: 0.25s;
 }
 
-/* Dark Theme Variables */
+/* Dark Theme Variables - Deep Ink Midnight (#1C1B29) */
 [data-theme="dark"] {
-  --bg-primary: #0F172A;
-  --bg-secondary: #1E293B;
-  --bg-card: #1E293B;
-  --bg-hover: #334155;
-  --bg-active: #475569;
+  --bg-primary: #12111C;
+  --bg-secondary: #1C1B29;
+  --bg-card: #242333;
+  --bg-hover: #2E2D3F;
+  --bg-active: #38374D;
 
-  --text-primary: #F8FAFC;
-  --text-secondary: #CBD5E1;
-  --text-muted: #94A3B8;
-  --text-light: #64748B;
+  --text-primary: #EDE4CD;
+  --text-secondary: #CBBF9F;
+  --text-muted: #8E899E;
+  --text-light: #6E6A7F;
 
-  --accent-terracotta: #E07A5F;
-  --accent-terracotta-light: #2D1E18;
-  --accent-sage: #81B29A;
-  --accent-sage-light: #1C2B24;
-  --accent-amber: #F2CC8F;
-  --accent-amber-light: #2E2718;
+  --accent-terracotta: #D84D3E;
+  --accent-terracotta-light: #3D1C18;
+  --accent-sage: #508568;
+  --accent-sage-light: #162B20;
+  --accent-amber: #D9A03C;
+  --accent-amber-light: #3A2A12;
 
-  --border-subtle: #334155;
-  --border-medium: #475569;
-  --border-focus: #E07A5F;
+  --border-subtle: #2D2B3D;
+  --border-medium: #3E3B52;
+  --border-focus: #D84D3E;
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
@@ -79,15 +84,24 @@
 }
 
 [data-theme="dark"] .flashcard-back {
-  background-color: #172131 !important;
+  background-color: #242333 !important;
 }
 
 [data-theme="dark"] input, 
 [data-theme="dark"] select, 
 [data-theme="dark"] textarea {
-  background-color: #0F172A !important;
-  color: #F8FAFC !important;
-  border-color: #334155 !important;
+  background-color: #1C1B29 !important;
+  color: #EDE4CD !important;
+  border-color: #3E3B52 !important;
+}
+
+/* Scribe Ledger Monospace Utilities */
+.font-mono,
+.verse-reference,
+.srs-interval,
+.streak-count-num {
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
 }
 
 /* Responsive Visibility Utilities */
@@ -219,7 +233,7 @@ p { font-size: 0.95rem; color: var(--text-secondary); }
 }
 
 .btn-primary:hover {
-  background-color: #755F69;
+  background-color: #882F25;
 }
 
 .btn-secondary {
