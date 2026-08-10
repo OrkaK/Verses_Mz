@@ -51,13 +51,6 @@ npm run build
 
 The output files will be generated in the `dist` folder.
 
-## Deploying to Vercel
-
-1. Push your repository to GitHub.
-2. Go to [Vercel](https://vercel.com) and click **Add New Project**.
-3. Select your `Verse` repository.
-4. Leave the build command as `npm run build` and output directory as `dist`.
-5. Click **Deploy**.
 
 ## Tech Stack
 
