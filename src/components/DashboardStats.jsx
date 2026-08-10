@@ -1,7 +1,8 @@
 import React from 'react';
 import { Flame, BrainCircuit, CheckCircle2, Award, ArrowRight, Sparkles, BookOpen, Gamepad2, HelpCircle } from 'lucide-react';
+import { TRANSLATIONS } from '../utils/bibleApi';
 
-export default function DashboardStats({ verses, streakCount, onSelectVerseMode, onOpenAddModal }) {
+export default function DashboardStats({ verses, streakCount, onSelectVerseMode, onOpenAddModal, onChangeVerseTranslation }) {
   // Statistics
   const totalVerses = verses.length;
   const masteredCount = verses.filter((v) => v.mastery === 'Mastered').length;
@@ -98,7 +99,23 @@ export default function DashboardStats({ verses, streakCount, onSelectVerseMode,
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="badge badge-neutral text-xs">{v.category}</span>
-                    <span className="text-xs text-muted font-bold">{v.translation}</span>
+                    <select
+                      value={v.translation || 'NIV'}
+                      onChange={(e) => {
+                        e.stopPropagation();
+                        if (onChangeVerseTranslation) {
+                          onChangeVerseTranslation(v.id, e.target.value);
+                        }
+                      }}
+                      onClick={(e) => e.stopPropagation()}
+                      className="input-field text-[11px] font-bold font-mono py-0.5 px-1.5 bg-secondary/80 border border-subtle rounded cursor-pointer hover:border-medium transition-colors"
+                      style={{ width: 'auto' }}
+                      title="Switch verse translation"
+                    >
+                      {TRANSLATIONS.map((t) => (
+                        <option key={t.id} value={t.id}>{t.id}</option>
+                      ))}
+                    </select>
                   </div>
                   <h4 className="serif-heading text-base font-bold">{v.reference}</h4>
                   <p className="scripture-text text-xs line-clamp-1 opacity-85">"{v.text}"</p>

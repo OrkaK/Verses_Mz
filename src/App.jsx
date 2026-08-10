@@ -29,8 +29,9 @@ import {
   getPreferredTranslation,
   setPreferredTranslation
 } from './utils/storage';
-import { playClickSound } from './utils/audioEffects';
-import { BookOpen, BrainCircuit, Sparkles, Plus, ArrowLeft, Settings, Sun, Moon, User, Cloud } from 'lucide-react';
+import { fetchBiblePassage, TRANSLATIONS } from './utils/bibleApi';
+import { playClickSound, playSuccessSound } from './utils/audioEffects';
+import { BookOpen, BrainCircuit, Sparkles, Plus, ArrowLeft, Settings, Sun, Moon, User, Cloud, RefreshCw } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard', 'library', 'practice', 'achievements'
@@ -49,6 +50,7 @@ export default function App() {
   const [theme, setTheme] = useState('light');
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [preferredTranslation, setTranslationState] = useState('NIV');
+  const [isTranslating, setIsTranslating] = useState(false);
 
   // Initialize data & theme
   useEffect(() => {
@@ -70,9 +72,65 @@ export default function App() {
     setSoundEnabled(savedSound);
   }, []);
 
-  const handleChangeTranslation = (newTr) => {
+  // Update a single verse's translation
+  const handleChangeVerseTranslation = async (verseId, targetTranslation) => {
+    const targetVerse = verses.find(v => v.id === verseId);
+    if (!targetVerse) return;
+
+    setIsTranslating(true);
+    try {
+      const fetched = await fetchBiblePassage(targetVerse.reference, targetTranslation);
+      const updatedVerse = {
+        ...targetVerse,
+        text: fetched.text,
+        translation: fetched.translation
+      };
+
+      const updatedList = verses.map(v => (v.id === verseId ? updatedVerse : v));
+      setVerses(updatedList);
+      saveVerses(updatedList);
+
+      if (selectedVerse?.id === verseId) {
+        setSelectedVerse(updatedVerse);
+      }
+      playSuccessSound(soundEnabled);
+    } catch (err) {
+      console.error('Failed to update verse translation:', err);
+    } finally {
+      setIsTranslating(false);
+    }
+  };
+
+  // Update global translation & re-fetch all verses
+  const handleChangeTranslation = async (newTr) => {
     setTranslationState(newTr);
     setPreferredTranslation(newTr);
+    setIsTranslating(true);
+
+    try {
+      const updatedList = await Promise.all(
+        verses.map(async (v) => {
+          try {
+            const fetched = await fetchBiblePassage(v.reference, newTr);
+            return { ...v, text: fetched.text, translation: fetched.translation };
+          } catch (e) {
+            return { ...v, translation: newTr };
+          }
+        })
+      );
+
+      setVerses(updatedList);
+      saveVerses(updatedList);
+      if (selectedVerse) {
+        const updatedSel = updatedList.find(v => v.id === selectedVerse.id);
+        if (updatedSel) setSelectedVerse(updatedSel);
+      }
+      playSuccessSound(soundEnabled);
+    } catch (err) {
+      console.error('Global translation update failed:', err);
+    } finally {
+      setIsTranslating(false);
+    }
   };
 
   const handleSignIn = (newUser) => {
@@ -213,6 +271,7 @@ export default function App() {
             streakCount={streakData.count}
             onSelectVerseMode={handleSelectVerseMode}
             onOpenAddModal={() => setIsAddModalOpen(true)}
+            onChangeVerseTranslation={handleChangeVerseTranslation}
           />
         )}
 
@@ -223,6 +282,7 @@ export default function App() {
             onOpenAddModal={() => setIsAddModalOpen(true)}
             onOpenEditModal={(v) => setEditingVerse(v)}
             onOpenShareModal={(v) => setSharingVerse(v)}
+            onChangeVerseTranslation={handleChangeVerseTranslation}
             soundEnabled={soundEnabled}
           />
         )}
@@ -251,28 +311,76 @@ export default function App() {
                 <h1 className="serif-heading">Interactive Practice & Games</h1>
               </div>
 
-              {/* Verse Selector Dropdown */}
-              {practiceMode !== 'match' && practiceMode !== 'quiz' && (
-                <div className="flex items-center gap-2">
-                  <label className="text-xs font-semibold text-muted">Current Verse:</label>
-                  <select
-                    value={selectedVerse?.id || ''}
-                    onChange={(e) => {
-                      playClickSound(soundEnabled);
-                      const found = verses.find((v) => v.id === e.target.value);
-                      if (found) setSelectedVerse(found);
-                    }}
-                    className="input-field text-xs sm:text-sm font-semibold"
-                    style={{ width: 'auto', maxWidth: '220px' }}
-                  >
-                    {verses.map((v) => (
-                      <option key={v.id} value={v.id}>
-                        {v.reference} ({v.category})
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              )}
+              {/* Verse Selector Dropdown & Live Translation Switcher */}
+              <div className="flex flex-wrap items-center gap-2">
+                {practiceMode !== 'match' && practiceMode !== 'quiz' && (
+                  <>
+                    <div className="flex items-center gap-2">
+                      <label className="text-xs font-semibold text-muted">Verse:</label>
+                      <select
+                        value={selectedVerse?.id || ''}
+                        onChange={(e) => {
+                          playClickSound(soundEnabled);
+                          const found = verses.find((v) => v.id === e.target.value);
+                          if (found) setSelectedVerse(found);
+                        }}
+                        className="input-field text-xs sm:text-sm font-semibold"
+                        style={{ width: 'auto', maxWidth: '200px' }}
+                      >
+                        {verses.map((v) => (
+                          <option key={v.id} value={v.id}>
+                            {v.reference} ({v.category})
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="flex items-center gap-1.5 bg-card px-2.5 py-1 rounded-lg border border-subtle">
+                      <span className="text-xs font-bold text-muted uppercase tracking-wider">Version:</span>
+                      <select
+                        value={selectedVerse?.translation || preferredTranslation || 'NIV'}
+                        disabled={isTranslating}
+                        onChange={(e) => {
+                          playClickSound(soundEnabled);
+                          if (selectedVerse) {
+                            handleChangeVerseTranslation(selectedVerse.id, e.target.value);
+                          } else {
+                            handleChangeTranslation(e.target.value);
+                          }
+                        }}
+                        className="input-field text-xs font-bold font-mono py-0.5 px-2 bg-secondary/50 cursor-pointer"
+                        style={{ width: 'auto' }}
+                      >
+                        {TRANSLATIONS.map((t) => (
+                          <option key={t.id} value={t.id}>{t.id}</option>
+                        ))}
+                      </select>
+                      {isTranslating && <RefreshCw size={12} className="animate-spin" style={{ color: '#A33A2E' }} />}
+                    </div>
+                  </>
+                )}
+
+                {(practiceMode === 'match' || practiceMode === 'quiz') && (
+                  <div className="flex items-center gap-1.5 bg-card px-2.5 py-1 rounded-lg border border-subtle">
+                    <span className="text-xs font-bold text-muted uppercase tracking-wider">Game Version:</span>
+                    <select
+                      value={preferredTranslation || 'NIV'}
+                      disabled={isTranslating}
+                      onChange={(e) => {
+                        playClickSound(soundEnabled);
+                        handleChangeTranslation(e.target.value);
+                      }}
+                      className="input-field text-xs font-bold font-mono py-0.5 px-2 bg-secondary/50 cursor-pointer"
+                      style={{ width: 'auto' }}
+                    >
+                      {TRANSLATIONS.map((t) => (
+                        <option key={t.id} value={t.id}>{t.id}</option>
+                      ))}
+                    </select>
+                    {isTranslating && <RefreshCw size={12} className="animate-spin" style={{ color: '#A33A2E' }} />}
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Memorization Technique & Game Switcher */}
