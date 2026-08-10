@@ -31,14 +31,9 @@ export default function Navigation({
       {/* Brand Header for Desktop */}
       <div className="hidden md:flex flex-col gap-4 mb-6 px-2">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-terracotta flex items-center justify-center text-white shadow-sm" style={{ backgroundColor: '#A33A2E' }}>
-              <Sparkles size={22} className="text-white" />
-            </div>
-            <div>
-              <h2 className="serif-heading text-xl font-bold" style={{ fontSize: '1.25rem' }}>Verse</h2>
-              <p className="text-xs text-muted">Scripture Memorization</p>
-            </div>
+          <div>
+            <h2 className="serif-heading text-2xl font-bold tracking-tight text-primary">Verse</h2>
+            <p className="text-xs text-muted">Scripture Memorization</p>
           </div>
 
           <div className="flex items-center gap-1">

@@ -179,11 +179,8 @@ export default function App() {
       <main className="main-content">
         {/* Mobile Header Bar */}
         <header className="flex md:hidden items-center justify-between pb-4 mb-4 border-b border-subtle">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-md flex items-center justify-center text-white" style={{ backgroundColor: '#A33A2E' }}>
-              <Sparkles size={18} />
-            </div>
-            <h2 className="serif-heading text-lg font-bold" style={{ color: '#1E293B' }}>Verse</h2>
+          <div>
+            <h2 className="serif-heading text-xl font-bold text-primary">Verse</h2>
           </div>
 
           <div className="flex items-center gap-2">
