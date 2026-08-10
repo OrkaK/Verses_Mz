@@ -1,27 +1,27 @@
 /* Design Tokens & CSS Reset */
 :root {
-  /* Color Palette - Warm, Human & Earthy */
-  --bg-primary: #FDFBF7;
-  --bg-secondary: #F7F3EC;
+  /* Color Palette - Elegant Mauve & Soft Neutral (#8A737D & #D2C4C4) */
+  --bg-primary: #FAF7F8;
+  --bg-secondary: #F2EAEA;
   --bg-card: #FFFFFF;
-  --bg-hover: #F0EAE1;
-  --bg-active: #E8E0D5;
+  --bg-hover: #EBE1E1;
+  --bg-active: #E0D4D4;
   
-  --text-primary: #1E293B;
-  --text-secondary: #475569;
-  --text-muted: #64748B;
-  --text-light: #94A3B8;
+  --text-primary: #2B2327;
+  --text-secondary: #5B4F55;
+  --text-muted: #85747C;
+  --text-light: #A3949B;
 
-  --accent-terracotta: #C87D55;
-  --accent-terracotta-light: #FDF3ED;
+  --accent-terracotta: #8A737D;
+  --accent-terracotta-light: #F6F0F2;
   --accent-sage: #556B2F;
   --accent-sage-light: #F2F5ED;
   --accent-amber: #D97706;
   --accent-amber-light: #FEF3C7;
   
-  --border-subtle: #EAE3D9;
-  --border-medium: #D6CBD;
-  --border-focus: #C87D55;
+  --border-subtle: #EAE0E0;
+  --border-medium: #D2C4C4;
+  --border-focus: #8A737D;
 
   --status-success: #2E7D32;
   --status-success-bg: #E8F5E9;
@@ -219,7 +219,7 @@ p { font-size: 0.95rem; color: var(--text-secondary); }
 }
 
 .btn-primary:hover {
-  background-color: #B26B43;
+  background-color: #755F69;
 }
 
 .btn-secondary {

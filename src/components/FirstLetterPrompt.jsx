@@ -139,7 +139,7 @@ export default function FirstLetterPrompt({ verse, onComplete }) {
             <button
               onClick={() => handleKeyTyped(words[revealedCount]?.firstLetter)}
               className="btn btn-primary w-full sm:w-auto px-6 py-2.5 text-base gap-2"
-              style={{ backgroundColor: '#C87D55' }}
+              style={{ backgroundColor: '#8A737D' }}
             >
               Tap Key <strong className="bg-white/20 px-2 py-0.5 rounded uppercase font-bold text-lg">{words[revealedCount]?.firstLetter}</strong> to Reveal Next Word
             </button>

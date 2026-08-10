@@ -132,7 +132,7 @@ export default function MemoryMatch({ verses, onComplete }) {
                     borderColor: '#EAE3D9'
                   }}
                 >
-                  <Sparkles size={24} style={{ color: '#C87D55' }} />
+                  <Sparkles size={24} style={{ color: '#8A737D' }} />
                   <span className="text-xs font-semibold text-muted mt-2">Tap to Reveal</span>
                 </div>
 
@@ -145,7 +145,7 @@ export default function MemoryMatch({ verses, onComplete }) {
                   }`}
                   style={{
                     backgroundColor: isMatched ? '#E8F5E9' : '#FFFFFF',
-                    borderColor: isMatched ? '#2E7D32' : '#C87D55'
+                    borderColor: isMatched ? '#2E7D32' : '#8A737D'
                   }}
                 >
                   <span className="text-[10px] font-bold uppercase tracking-wider text-muted">

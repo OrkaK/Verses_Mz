@@ -119,7 +119,7 @@ export default function FlashcardSRS({ verse, onRateRecall, soundEnabled = true 
             }}
           >
             <div className="flex justify-between items-center">
-              <span className="text-xs font-bold" style={{ color: '#C87D55' }}>{verse.reference}</span>
+              <span className="text-xs font-bold" style={{ color: '#8A737D' }}>{verse.reference}</span>
               <span className="text-xs text-muted">{verse.translation}</span>
             </div>
 
@@ -174,7 +174,7 @@ export default function FlashcardSRS({ verse, onRateRecall, soundEnabled = true 
           <button
             onClick={() => handleRating(4)}
             className="btn btn-primary flex-col py-2.5 h-auto"
-            style={{ backgroundColor: '#C87D55' }}
+            style={{ backgroundColor: '#8A737D' }}
           >
             <span className="font-bold text-xs">4. Easy</span>
             <span className="text-[10px] text-white/90">Review in 7+d</span>

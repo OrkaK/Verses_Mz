@@ -5,8 +5,8 @@ import { playClickSound, playSuccessSound } from '../utils/audioEffects';
 const CARD_THEMES = [
   {
     id: 'terracotta',
-    name: 'Terracotta Sunset',
-    bg: 'linear-gradient(135deg, #C87D55 0%, #A65D37 100%)',
+    name: 'Mauve Elegance',
+    bg: 'linear-gradient(135deg, #8A737D 0%, #6E5962 100%)',
     textColor: '#FFFFFF',
     refColor: '#FDE68A',
     borderColor: 'rgba(255, 255, 255, 0.2)'
@@ -21,11 +21,11 @@ const CARD_THEMES = [
   },
   {
     id: 'sand',
-    name: 'Warm Sand',
-    bg: '#FDFBF7',
-    textColor: '#1E293B',
-    refColor: '#C87D55',
-    borderColor: '#EAE3D9'
+    name: 'Soft Neutral',
+    bg: '#FAF7F8',
+    textColor: '#2B2327',
+    refColor: '#8A737D',
+    borderColor: '#D2C4C4'
   },
   {
     id: 'olive',
@@ -71,8 +71,8 @@ export default function ShareVerseModal({ verse, isOpen, onClose, soundEnabled =
     // Draw background
     if (selectedTheme.id === 'terracotta') {
       const grad = ctx.createLinearGradient(0, 0, 600, 400);
-      grad.addColorStop(0, '#C87D55');
-      grad.addColorStop(1, '#A65D37');
+      grad.addColorStop(0, '#8A737D');
+      grad.addColorStop(1, '#6E5962');
       ctx.fillStyle = grad;
     } else if (selectedTheme.id === 'dark') {
       const grad = ctx.createLinearGradient(0, 0, 600, 400);
@@ -85,7 +85,7 @@ export default function ShareVerseModal({ verse, isOpen, onClose, soundEnabled =
       grad.addColorStop(1, '#354318');
       ctx.fillStyle = grad;
     } else {
-      ctx.fillStyle = '#FDFBF7';
+      ctx.fillStyle = '#FAF7F8';
     }
 
     ctx.fillRect(0, 0, 600, 400);
@@ -214,7 +214,7 @@ export default function ShareVerseModal({ verse, isOpen, onClose, soundEnabled =
           <button
             onClick={handleDownloadCard}
             className="btn btn-primary w-full sm:w-auto gap-2 text-xs"
-            style={{ backgroundColor: '#C87D55' }}
+            style={{ backgroundColor: '#8A737D' }}
           >
             <Download size={16} /> Download PNG Card
           </button>

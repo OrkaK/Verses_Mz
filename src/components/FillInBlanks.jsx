@@ -115,8 +115,8 @@ export default function FillInBlanks({ verse, onComplete, soundEnabled = true })
                   : 'bg-secondary text-secondary hover:bg-hover'
               }`}
               style={{
-                backgroundColor: difficulty === d ? '#C87D55' : '#F7F3EC',
-                color: difficulty === d ? '#FFFFFF' : '#475569'
+                backgroundColor: difficulty === d ? '#8A737D' : '#F2EAEA',
+                color: difficulty === d ? '#FFFFFF' : '#5B4F55'
               }}
             >
               {d}

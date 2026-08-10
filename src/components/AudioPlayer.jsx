@@ -83,7 +83,7 @@ export default function AudioPlayer({ text, reference }) {
     <div className="card p-4 flex flex-col gap-3 my-3" style={{ backgroundColor: '#F8F5EE', borderColor: '#EAE3D9' }}>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Volume2 size={18} style={{ color: '#C87D55' }} />
+          <Volume2 size={18} style={{ color: '#8A737D' }} />
           <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: '#475569' }}>
             Audio Recitation Mode
           </span>
@@ -108,7 +108,7 @@ export default function AudioPlayer({ text, reference }) {
                   : 'bg-white text-secondary border-subtle'
               }`}
               style={{
-                backgroundColor: rate === r ? '#C87D55' : '#FFFFFF',
+                backgroundColor: rate === r ? '#8A737D' : '#FFFFFF',
                 color: rate === r ? '#FFFFFF' : '#475569',
                 borderColor: '#EAE3D9'
               }}
@@ -124,7 +124,7 @@ export default function AudioPlayer({ text, reference }) {
         <button
           onClick={handlePlayPause}
           className="btn btn-primary btn-sm flex items-center gap-1.5"
-          style={{ backgroundColor: isPlaying ? '#D97706' : '#C87D55' }}
+          style={{ backgroundColor: isPlaying ? '#D97706' : '#8A737D' }}
         >
           {isPlaying ? <Pause size={16} /> : <Play size={16} />}
           <span>{isPlaying ? 'Pause' : 'Listen'}</span>

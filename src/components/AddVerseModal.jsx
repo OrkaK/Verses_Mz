@@ -93,7 +93,7 @@ export default function AddVerseModal({ isOpen, onClose, onAddVerse, soundEnable
         {/* Modal Header */}
         <div className="flex items-center justify-between pb-3 border-b border-subtle">
           <div className="flex items-center gap-2">
-            <BookPlus size={20} style={{ color: '#C87D55' }} />
+            <BookPlus size={20} style={{ color: '#8A737D' }} />
             <h3 className="serif-heading text-xl">Add Scripture Verse</h3>
           </div>
           <button onClick={onClose} className="btn btn-ghost btn-icon text-muted">
@@ -170,7 +170,7 @@ export default function AddVerseModal({ isOpen, onClose, onAddVerse, soundEnable
                 onClick={handleFetchPassage}
                 disabled={loading}
                 className="btn btn-secondary w-full gap-2 text-xs font-bold"
-                style={{ borderColor: '#C87D55', color: '#C87D55' }}
+                style={{ borderColor: '#8A737D', color: '#8A737D' }}
               >
                 {loading ? <Loader2 size={16} className="animate-spin" /> : <Search size={16} />}
                 {loading ? 'Searching Scripture...' : 'Search & Auto-Fill Verse Text'}
