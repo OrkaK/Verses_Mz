@@ -238,7 +238,7 @@ export default function App() {
         {/* Mobile Header Bar */}
         <header className="flex md:hidden items-center justify-between pb-4 mb-4 border-b border-subtle">
           <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="Memorize Verses" className="w-7 h-7 object-contain dark:invert" />
+            <img src="/logo.png" alt="Memorize Verses" style={{ width: '28px', height: '28px', minWidth: '28px', objectFit: 'contain' }} className="dark:invert shrink-0" />
             <h2 className="serif-heading text-lg font-bold text-primary">Memorize Verses</h2>
           </div>
 
