@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://verses-mz.vercel.app/sitemap.xml
