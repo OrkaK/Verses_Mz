@@ -66,7 +66,7 @@ export default function SettingsModal({
   };
 
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs animate-fade-in">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-fade-in" onClick={onClose}>
       <div
         className="card w-full max-w-lg p-6 bg-card relative flex flex-col gap-6 shadow-xl border border-subtle max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}

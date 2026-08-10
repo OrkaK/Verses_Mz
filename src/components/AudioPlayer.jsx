@@ -80,11 +80,11 @@ export default function AudioPlayer({ text, reference }) {
   }
 
   return (
-    <div className="card p-4 flex flex-col gap-3 my-3" style={{ backgroundColor: '#F8F5EE', borderColor: '#EAE3D9' }}>
+    <div className="card p-4 flex flex-col gap-3 my-3 bg-secondary/40 border border-subtle">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Volume2 size={18} style={{ color: '#A33A2E' }} />
-          <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: '#475569' }}>
+          <span className="text-xs font-semibold uppercase tracking-wider text-muted">
             Audio Recitation Mode
           </span>
         </div>
@@ -104,14 +104,9 @@ export default function AudioPlayer({ text, reference }) {
               }}
               className={`px-2 py-0.5 rounded border transition-colors ${
                 rate === r
-                  ? 'bg-terracotta text-white font-bold'
-                  : 'bg-white text-secondary border-subtle'
+                  ? 'bg-terracotta text-white font-bold border-transparent'
+                  : 'bg-card text-secondary border-subtle hover:bg-hover'
               }`}
-              style={{
-                backgroundColor: rate === r ? '#A33A2E' : '#FFFFFF',
-                color: rate === r ? '#FFFFFF' : '#475569',
-                borderColor: '#EAE3D9'
-              }}
             >
               {r}x
             </button>
@@ -130,26 +125,22 @@ export default function AudioPlayer({ text, reference }) {
           <span>{isPlaying ? 'Pause' : 'Listen'}</span>
         </button>
 
-        <p className="text-xs italic" style={{ color: '#64748B' }}>
+        <p className="text-xs italic text-muted">
           {isPlaying ? 'Reciting scripture out loud...' : 'Click to listen to word-by-word pronunciation.'}
         </p>
       </div>
 
       {/* Synchronized Word Highlight Display */}
       {isPlaying && (
-        <div className="mt-2 p-3 bg-white rounded-md border text-base leading-relaxed scripture-text" style={{ borderColor: '#EAE3D9' }}>
+        <div className="mt-2 p-3 bg-card rounded-md border border-subtle text-base leading-relaxed scripture-text">
           {words.map((w, idx) => (
             <span
               key={idx}
               className={`transition-colors duration-150 inline-block mr-1 px-1 rounded ${
                 idx === highlightedIndex
-                  ? 'bg-amber-100 font-bold text-amber-900 border-b-2 border-amber-500'
+                  ? 'bg-amber-500/20 font-bold text-amber-700 dark:text-amber-300 border-b-2 border-amber-500'
                   : ''
               }`}
-              style={{
-                backgroundColor: idx === highlightedIndex ? '#FEF3C7' : 'transparent',
-                color: idx === highlightedIndex ? '#92400E' : 'inherit'
-              }}
             >
               {w}
             </span>

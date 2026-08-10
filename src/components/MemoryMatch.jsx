@@ -125,13 +125,7 @@ export default function MemoryMatch({ verses, onComplete }) {
             >
               <div className={`flashcard-inner ${isFlipped ? 'flipped' : ''}`}>
                 {/* Card Back (Hidden pattern) */}
-                <div
-                  className="flashcard-front flex-col items-center justify-center text-center p-3 cursor-pointer hover:border-terracotta transition-colors"
-                  style={{
-                    backgroundColor: '#F7F3EC',
-                    borderColor: '#EAE3D9'
-                  }}
-                >
+                <div className="flashcard-front flex-col items-center justify-center text-center p-3 cursor-pointer bg-secondary/50 border border-subtle hover:border-medium transition-colors">
                   <Sparkles size={24} style={{ color: '#A33A2E' }} />
                   <span className="text-xs font-semibold text-muted mt-2">Tap to Reveal</span>
                 </div>
@@ -140,13 +134,9 @@ export default function MemoryMatch({ verses, onComplete }) {
                 <div
                   className={`flashcard-back flex-col justify-between p-3.5 border-2 ${
                     isMatched
-                      ? 'bg-emerald-50 border-emerald-500 text-emerald-950'
-                      : 'bg-white border-terracotta text-primary'
+                      ? 'bg-emerald-500/15 border-emerald-600 text-emerald-900 dark:text-emerald-200'
+                      : 'bg-card border-terracotta text-primary'
                   }`}
-                  style={{
-                    backgroundColor: isMatched ? '#E8F5E9' : '#FFFFFF',
-                    borderColor: isMatched ? '#2E7D32' : '#A33A2E'
-                  }}
                 >
                   <span className="text-[10px] font-bold uppercase tracking-wider text-muted">
                     {card.type === 'reference' ? card.subtitle : 'Scripture Snippet'}

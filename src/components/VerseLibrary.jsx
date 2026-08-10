@@ -76,7 +76,7 @@ export default function VerseLibrary({
       </div>
 
       {/* Search & Filter Bar */}
-      <div className="card p-4 flex flex-col md:flex-row gap-3" style={{ backgroundColor: '#F8F5EE' }}>
+      <div className="card p-4 flex flex-col md:flex-row gap-3 bg-secondary/40 border border-subtle">
         <div className="relative flex-1">
           <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
           <input
@@ -184,7 +184,7 @@ export default function VerseLibrary({
                   </div>
                 </div>
 
-                <h3 className="serif-heading text-lg font-bold" style={{ color: '#1E293B' }}>
+                <h3 className="serif-heading text-lg font-bold text-primary font-mono">
                   {v.reference}
                 </h3>
 

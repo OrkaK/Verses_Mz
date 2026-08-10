@@ -142,8 +142,8 @@ export default function ShareVerseModal({ verse, isOpen, onClose, soundEnabled =
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 z-[200] flex items-center justify-center p-4 animate-fade-in backdrop-blur-xs">
-      <div className="bg-card w-full max-w-xl rounded-xl p-6 shadow-lg border border-subtle flex flex-col gap-6 max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-fade-in" onClick={onClose}>
+      <div className="bg-card w-full max-w-xl rounded-xl p-6 shadow-lg border border-subtle flex flex-col gap-6 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
         {/* Header */}
         <div className="flex items-center justify-between border-b border-subtle pb-4">
           <div className="flex items-center gap-2">

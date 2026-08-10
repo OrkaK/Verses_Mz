@@ -47,7 +47,7 @@ export default function AuthModal({ isOpen, onClose, user, onSignIn, onSignOut, 
   };
 
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-fade-in">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-fade-in" onClick={onClose}>
       <div
         className="card w-full max-w-md p-6 bg-card relative flex flex-col gap-5 shadow-2xl border border-subtle max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}

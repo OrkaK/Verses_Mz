@@ -114,13 +114,9 @@ export default function FirstLetterPrompt({ verse, onComplete }) {
               key={idx}
               className={`transition-all duration-200 px-1.5 py-0.5 rounded text-lg ${
                 isRevealed
-                  ? 'bg-white text-primary border border-subtle shadow-sm'
-                  : 'bg-stone-200/70 text-stone-600 font-bold tracking-widest border border-dashed border-stone-300'
+                  ? 'bg-card text-primary border border-subtle shadow-sm font-semibold'
+                  : 'bg-secondary text-amber-900 dark:text-amber-200 font-bold tracking-widest border border-dashed border-medium'
               }`}
-              style={{
-                backgroundColor: isRevealed ? '#FFFFFF' : '#EAE3D9',
-                color: isRevealed ? '#1E293B' : '#78350F'
-              }}
             >
               {isRevealed ? w.full : `${w.firstLetter}_`}
             </span>

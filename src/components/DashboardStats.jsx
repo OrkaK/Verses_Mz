@@ -17,22 +17,22 @@ export default function DashboardStats({ verses, streakCount, onSelectVerseMode,
   return (
     <div className="flex flex-col gap-6 animate-fade-in">
       {/* Welcome Banner */}
-      <div className="card p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4" style={{ backgroundColor: '#F7F3EC', borderColor: '#EAE3D9' }}>
+      <div className="card p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 bg-secondary/40 border border-subtle">
         <div>
           <span className="badge badge-terracotta mb-2">Welcome Back</span>
-          <h1 className="serif-heading mb-1" style={{ color: '#1E293B' }}>Scripture Study & Memorization</h1>
-          <p className="text-sm" style={{ color: '#475569' }}>
+          <h1 className="serif-heading text-2xl font-bold mb-1 text-primary">Scripture Study & Memorization</h1>
+          <p className="text-sm text-secondary">
             Internalize God's word with focused daily recall practice & interactive games.
           </p>
         </div>
 
-        <div className="flex items-center gap-3 bg-white p-3.5 rounded-xl border border-subtle shadow-xs">
-          <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-700" style={{ backgroundColor: '#FEF3C7', color: '#D97706' }}>
+        <div className="flex items-center gap-3 bg-card p-3.5 rounded-xl border border-subtle shadow-xs">
+          <div className="w-10 h-10 rounded-full bg-amber-500/15 flex items-center justify-center text-amber-600 dark:text-amber-400">
             <Flame size={22} />
           </div>
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider text-muted">Streak</div>
-            <div className="text-lg font-bold text-primary">{streakCount} {streakCount === 1 ? 'Day' : 'Days'}</div>
+            <div className="text-lg font-bold text-primary font-mono">{streakCount} {streakCount === 1 ? 'Day' : 'Days'}</div>
           </div>
         </div>
       </div>
