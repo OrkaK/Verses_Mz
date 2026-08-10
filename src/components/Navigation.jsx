@@ -31,9 +31,12 @@ export default function Navigation({
       {/* Brand Header for Desktop */}
       <div className="hidden md:flex flex-col gap-4 mb-6 px-2">
         <div className="flex items-center justify-between">
-          <div>
-            <h2 className="serif-heading text-2xl font-bold tracking-tight text-primary">Verse</h2>
-            <p className="text-xs text-muted">Scripture Memorization</p>
+          <div className="flex items-center gap-3">
+            <img src="/logo.png" alt="Memorize Verses" className="w-9 h-9 object-contain dark:invert" />
+            <div>
+              <h2 className="serif-heading text-lg font-bold tracking-tight text-primary leading-tight">Memorize Verses</h2>
+              <p className="text-[11px] text-muted">Scripture Memorization</p>
+            </div>
           </div>
 
           <div className="flex items-center gap-1">
